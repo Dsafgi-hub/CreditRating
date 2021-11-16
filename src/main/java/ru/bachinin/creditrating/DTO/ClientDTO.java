@@ -1,28 +1,24 @@
 package ru.bachinin.creditrating.DTO;
 
+import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
-import javax.validation.constraints.NotBlank;
 
+import javax.validation.constraints.NotBlank;
 
 @XmlRootElement(name = "user")
 public class ClientDTO {
     @NotBlank
+    @XmlElement(name = "surname")
     private String surname;
 
     @NotBlank
+    @XmlElement(name = "firstName")
     private String firstName;
 
     @NotBlank
+    @XmlElement(name = "secondName")
     private String secondName;
 
-    public ClientDTO(String surname, String firstName, String secondName) {
-        this.surname = surname;
-        this.firstName = firstName;
-        this.secondName = secondName;
-    }
-
-    public ClientDTO() {
-    }
 
     public void setSurname(String surname) {
         this.surname = surname;
@@ -46,5 +42,14 @@ public class ClientDTO {
 
     public String getSecondName() {
         return secondName;
+    }
+
+    @Override
+    public String toString() {
+        return "ClientDTO { " +
+                " surname'" + surname + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", secondName='" + secondName + '\'' +
+                '}';
     }
 }

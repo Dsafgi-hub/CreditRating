@@ -14,6 +14,17 @@ public class Client {
 
     private Integer rating;
 
+    public Client(String surname,
+                  String firstName,
+                  String secondName) {
+        this.surname = surname;
+        this.firstName = firstName;
+        this.secondName = secondName;
+    }
+
+    public Client() {
+    }
+
     public String getId() {
         return id;
     }
