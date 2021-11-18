@@ -13,7 +13,7 @@ import ru.bachinin.creditrating.services.ClientService;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/clients")
+@RequestMapping
 public class ClientController {
 
     private final ClientService clientService;
@@ -23,7 +23,7 @@ public class ClientController {
         this.clientService = clientService;
     }
 
-    @PostMapping(consumes = {MediaType.APPLICATION_XML_VALUE})
+    @PostMapping(value = "/clients", consumes = {MediaType.APPLICATION_XML_VALUE})
     public Integer calculateRating(@Valid @RequestBody ClientDTO clientDTO) {
         Client client = clientService.createClientFromDto(clientDTO);
         return client.getRating();
